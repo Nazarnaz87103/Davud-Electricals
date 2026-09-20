@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Davud Electricals – Motors, Fans, Air Coolers & LED Lighting in Huzur Nagar</title>
+<meta name="description" content="Davud Electricals, Huzur Nagar: electric motors, fans, air coolers and LED lighting at affordable prices. Call 99124 34820.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0A1024;
+  --night-2:#101838;
+  --line:#263160;
+  --muted:#8E99C4;
+  --glow:#FFC24B;
+  --warm:#FFF3D6;
+  --ink:#0A1024;
+  --font-head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --font-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0;background:var(--night);color:var(--warm);
+  font-family:var(--font-body);font-size:1.0625rem;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+h1,h2,h3{font-family:var(--font-head);line-height:1.08;margin:0;letter-spacing:-.02em}
+:focus-visible{outline:3px solid var(--glow);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1160px,100% - 2.5rem);margin-inline:auto}
+
+/* ---------- header ---------- */
+.site-header{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+  background:rgba(10,16,36,.86);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:68px}
+.brand{display:flex;align-items:center;gap:.65rem;text-decoration:none;font-family:var(--font-head);font-weight:800;font-size:1.25rem;letter-spacing:-.01em}
+.brand svg{width:30px;height:30px;flex:none}
+.nav{display:flex;align-items:center;gap:1.75rem}
+.nav a{text-decoration:none;color:var(--muted);font-weight:500}
+.nav a:hover{color:var(--warm)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  padding:.8rem 1.35rem;border-radius:999px;border:2px solid transparent;
+  font:600 1rem/1 var(--font-body);text-decoration:none;cursor:pointer;
+  transition:transform .15s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+.btn svg{width:18px;height:18px;flex:none}
+.btn:active{transform:translateY(1px)}
+.btn-gold{background:var(--glow);color:var(--ink)}
+.btn-gold:hover{background:#ffd06f}
+.btn-line{border-color:var(--line);color:var(--warm)}
+.btn-line:hover{border-color:var(--glow);color:var(--glow)}
+.btn-dark{background:var(--ink);color:var(--glow)}
+.btn-dark:hover{background:#18224a}
+.btn-line-dark{border-color:var(--ink);color:var(--ink)}
+.btn-line-dark:hover{background:var(--ink);color:var(--glow)}
+.call-sm{padding:.65rem 1.1rem;font-size:.95rem}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(1px 1px at 20px 30px,#fff,transparent),
+    radial-gradient(1px 1px at 90px 90px,#cfd8ff,transparent),
+    radial-gradient(1.5px 1.5px at 150px 45px,#fff,transparent),
+    radial-gradient(1px 1px at 60px 150px,#e8ecff,transparent),
+    radial-gradient(1px 1px at 175px 130px,#cfd8ff,transparent),
+    linear-gradient(180deg,#070c1d 0%,#0d1633 70%,var(--night) 100%);
+  background-size:200px 200px,200px 200px,200px 200px,200px 200px,200px 200px,100% 100%;
+}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center;gap:2rem;padding-block:3.5rem 4.5rem;min-height:600px}
+.moon{position:absolute;top:26px;left:44%;width:44px;height:44px;opacity:.85}
+.hero h1{
+  font-size:clamp(2.4rem,5.2vw,4.3rem);font-weight:800;
+  color:#56618f;transition:color 1.4s ease;
+}
+.hero.lit h1{color:var(--warm)}
+.hero p.lead{max-width:34rem;margin:1.4rem 0 0;color:var(--muted);font-size:1.15rem;transition:color 1.4s ease}
+.hero.lit p.lead{color:#c9d0ee}
+.cta-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.hint{margin:1.4rem 0 0;color:var(--muted);font-size:.92rem}
+
+.lamps{position:relative;height:500px;--k:1}
+.lamp{
+  position:absolute;top:0;left:var(--x);transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;
+  background:none;border:0;padding:0;cursor:pointer;color:inherit;
+}
+.lamp .swing{display:flex;flex-direction:column;align-items:center;transform-origin:top center}
+.lamp.swinging .swing{animation:swing 1.3s ease-out}
+@keyframes swing{
+  0%{transform:rotate(0)} 18%{transform:rotate(5deg)} 40%{transform:rotate(-3.5deg)}
+  62%{transform:rotate(2deg)} 82%{transform:rotate(-1deg)} 100%{transform:rotate(0)}
+}
+.cord{width:2px;height:calc(var(--len) * var(--k));background:linear-gradient(#6a76a8,#2b3358)}
+.bulb{position:relative;width:calc(var(--w) * var(--k))}
+.bulb svg{position:relative;z-index:1;display:block;width:100%;height:auto;overflow:visible;transition:filter .9s ease}
+.halo{
+  position:absolute;left:50%;top:55%;width:380px;height:380px;margin:-190px 0 0 -190px;
+  background:radial-gradient(circle,rgba(255,194,75,.5) 0%,rgba(255,194,75,.16) 40%,rgba(255,194,75,0) 68%);
+  opacity:0;transition:opacity 1s ease;pointer-events:none;mix-blend-mode:screen;
+}
+.lamp.on .halo{opacity:1}
+.lamp.on .bulb svg{filter:drop-shadow(0 0 12px rgba(255,194,75,.85))}
+.cap{fill:#3a4475}
+.ridge{stroke:#1d2444;stroke-width:2;fill:none}
+.glass{fill:#232c52;stroke:#4a5686;stroke-width:1.5;transition:fill .8s ease,stroke .8s ease}
+.core{fill:#fff7dc;opacity:0;transition:opacity .8s ease}
+.fil{fill:none;stroke:#5b6693;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:stroke .8s ease}
+.tube{fill:none;stroke:#2c3766;stroke-width:11;stroke-linecap:round;transition:stroke .8s ease}
+.lamp.on .glass{fill:#ffd56a;stroke:#ffe9b0}
+.lamp.on .core{opacity:.9}
+.lamp.on .fil{stroke:#fff7dc}
+.lamp.on .tube{stroke:#fff0c0}
+
+/* ---------- sections ---------- */
+section{padding-block:5.5rem}
+.sec-head{max-width:40rem;margin-bottom:3rem}
+.sec-head h2{font-size:clamp(2rem,4vw,3.1rem);font-weight:800}
+.sec-head p{margin:1rem 0 0;color:var(--muted)}
+
+/* products */
+.products-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1.4rem;perspective:1200px}
+.panel{
+  grid-column:span 6;
+  background:linear-gradient(160deg,var(--night-2),#0c1330);
+  border:1px solid var(--line);border-radius:22px;
+  padding:1.6rem 1.6rem 1.9rem;
+  display:grid;gap:1.1rem;
+  transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));
+  transform-style:preserve-3d;
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+  will-change:transform;
+}
+.panel.wide{grid-column:span 7}
+.panel.narrow{grid-column:span 5}
+.panel:hover{border-color:#3b4a8a;box-shadow:0 24px 50px -24px rgba(255,194,75,.28)}
+.art{
+  height:170px;border-radius:14px;display:grid;place-items:center;
+  background:radial-gradient(ellipse at 50% 55%,rgba(255,194,75,.2),rgba(255,194,75,0) 65%),#0b1230;
+  border:1px solid #1c2653;
+  transform:translateZ(30px);
+}
+.art svg{height:130px;width:auto;fill:none;stroke:var(--glow);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.panel h3{font-size:1.6rem;font-weight:700;transform:translateZ(18px)}
+.panel ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem;color:#c9d0ee}
+.panel li{display:flex;gap:.7rem;align-items:baseline}
+.panel li::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--glow);box-shadow:0 0 8px var(--glow);transform:translateY(-2px)}
+
+/* why */
+.why{background:#080d20;border-block:1px solid var(--line)}
+.why-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.why-list li{padding:0 1.6rem;border-left:1px solid var(--line)}
+.why-list li:first-child{padding-left:0;border-left:0}
+.why-list svg{width:34px;height:34px;fill:none;stroke:var(--glow);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;margin-bottom:1rem}
+.why-list strong{display:block;font-family:var(--font-head);font-size:1.3rem;font-weight:700;line-height:1.2}
+
+/* contact */
+.contact{background:var(--glow);color:var(--ink)}
+.contact-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:3.5rem;align-items:start}
+.contact h2{font-size:clamp(2.1rem,4.4vw,3.4rem);font-weight:800}
+.contact .lede{margin:1.2rem 0 0;font-size:1.15rem;max-width:32rem}
+.contact .cta-row{margin-top:2rem}
+.details{background:rgba(10,16,36,.08);border:2px solid var(--ink);border-radius:20px;padding:1.8rem;display:grid;gap:1.4rem}
+.details h3{font-size:1.5rem;font-weight:800}
+.details dl{margin:0;display:grid;gap:1.1rem}
+.details dt{font-weight:600;font-size:.95rem;opacity:.75}
+.details dd{margin:.15rem 0 0;font-size:1.1rem;font-weight:500}
+.details a{font-weight:600}
+.hours{width:100%;border-collapse:collapse;font-size:1rem}
+.hours th,.hours td{padding:.4rem .6rem;text-align:left;font-weight:500;border-bottom:1px solid rgba(10,16,36,.22)}
+.hours td{text-align:right;font-variant-numeric:tabular-nums}
+.hours tr:last-child th,.hours tr:last-child td{border-bottom:0}
+.hours tr.today{background:var(--ink);color:var(--glow)}
+.hours tr.today th,.hours tr.today td{font-weight:700;border-bottom-color:transparent}
+.hours tr.today th{border-radius:8px 0 0 8px}
+.hours tr.today td{border-radius:0 8px 8px 0}
+
+footer{background:#070b1a;padding-block:2.2rem;color:var(--muted);font-size:.95rem}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 2rem}
+.foot strong{color:var(--warm);font-family:var(--font-head);font-weight:700}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .nav a.link{display:none}
+  .hero-grid{grid-template-columns:1fr;padding-block:2rem 3.5rem;min-height:0}
+  .lamps{order:-1;height:380px;--k:.72}
+  .moon{left:auto;right:22px}
+  .products-grid{gap:1.1rem}
+  .panel,.panel.wide,.panel.narrow{grid-column:span 12}
+  .why-list{grid-template-columns:1fr 1fr;row-gap:2.2rem}
+  .why-list li:nth-child(odd){padding-left:0;border-left:0}
+  .contact-grid{grid-template-columns:1fr;gap:2.5rem}
+  section{padding-block:4rem}
+}
+@media (max-width:520px){
+  .btn{width:100%}
+  .call-sm{width:auto}
+  .halo{width:280px;height:280px;margin:-140px 0 0 -140px}
+  .why-list{grid-template-columns:1fr}
+  .why-list li,.why-list li:nth-child(odd){padding:0;border-left:0}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Davud Electricals home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#FFC24B"/><path d="M18 5 9 18h6l-2 9 10-14h-6z" fill="#0A1024"/></svg>
+      Davud Electricals
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a class="link" href="#products">Products</a>
+      <a class="link" href="#why">Why us</a>
+      <a class="link" href="#contact">Contact</a>
+      <a class="btn btn-gold call-sm" href="tel:+919912434820">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+        Call now
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero" id="hero">
+    <svg class="moon" viewBox="0 0 44 44" aria-hidden="true"><defs><mask id="cres"><rect width="44" height="44" fill="#fff"/><circle cx="29" cy="17" r="15" fill="#000"/></mask></defs><circle cx="20" cy="24" r="16" fill="#ffe9b0" mask="url(#cres)"/></svg>
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Quality electrical products for your home &amp; business</h1>
+        <p class="lead">We provide reliable electrical products at affordable prices. Explore our wide range of motors, fans, air coolers and LED bulbs.</p>
+        <div class="cta-row">
+          <a class="btn btn-gold" href="tel:+919912434820">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+            Call now
+          </a>
+          <a class="btn btn-line" href="https://wa.me/919912434820?text=Hello%20Davud%20Electricals%2C%20I%20need%20details%20about%20your%20products." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.8A9 9 0 1 1 8 19.5z"/><path d="M9 9c0 3 3 6 6 6l1.2-1.6-2.2-1.2-.9.9c-.9-.4-1.7-1.2-2.1-2.1l.9-.9L10.7 8z"/></svg>
+            WhatsApp us
+          </a>
+        </div>
+        <p class="hint">Tap a bulb to switch it on or off.</p>
+      </div>
+
+      <div class="lamps" id="lamps">
+        <!-- LED globe -->
+        <button class="lamp on" style="--x:14%;--len:120px;--w:104px" aria-label="Toggle LED globe bulb" aria-pressed="true">
+          <span class="swing"><span class="cord"></span>
+          <span class="bulb"><span class="halo"></span>
+            <svg viewBox="0 0 100 130" aria-hidden="true">
+              <circle class="glass" cx="50" cy="68" r="38"/><circle class="core" cx="50" cy="68" r="22"/>
+              <path class="fil" d="M40 92V62M50 92V56M60 92V62"/>
+              <rect class="cap" x="34" y="0" width="32" height="30" rx="5"/><path class="ridge" d="M34 8h32M34 15h32M34 22h32"/>
+            </svg></span></span>
+        </button>
+        <!-- CFL spiral -->
+        <button class="lamp on" style="--x:38%;--len:245px;--w:88px" aria-label="Toggle spiral CFL bulb" aria-pressed="true">
+          <span class="swing"><span class="cord"></span>
+          <span class="bulb"><span class="halo"></span>
+            <svg viewBox="0 0 100 130" aria-hidden="true">
+              <rect class="cap" x="34" y="0" width="32" height="26" rx="5"/><path class="ridge" d="M34 8h32M34 15h32M34 22h32"/>
+              <rect x="28" y="26" width="44" height="18" rx="6" fill="#4a5686"/>
+              <path class="tube" d="M30 56Q50 46 70 56M30 72Q50 62 70 72M30 88Q50 78 70 88M32 104Q50 96 68 104"/>
+            </svg></span></span>
+        </button>
+        <!-- Filament -->
+        <button class="lamp on" style="--x:63%;--len:60px;--w:96px" aria-label="Toggle filament bulb" aria-pressed="true">
+          <span class="swing"><span class="cord"></span>
+          <span class="bulb"><span class="halo"></span>
+            <svg viewBox="0 0 100 130" aria-hidden="true">
+              <path class="glass" d="M34 26H66C66 36 68 42 76 50C94 68 88 104 50 118C12 104 6 68 24 50C32 42 34 36 34 26Z"/>
+              <ellipse class="core" cx="50" cy="66" rx="16" ry="24"/>
+              <path class="fil" d="M42 40V68L46 76L50 64L54 76L58 68V40"/>
+              <rect class="cap" x="34" y="0" width="32" height="30" rx="5"/><path class="ridge" d="M34 8h32M34 15h32M34 22h32"/>
+            </svg></span></span>
+        </button>
+        <!-- Candle -->
+        <button class="lamp on" style="--x:86%;--len:175px;--w:62px" aria-label="Toggle candle bulb" aria-pressed="true">
+          <span class="swing"><span class="cord"></span>
+          <span class="bulb"><span class="halo"></span>
+            <svg viewBox="0 0 100 130" aria-hidden="true">
+              <path class="glass" d="M36 26H64L67 60C67 82 58 98 50 118C42 98 33 82 33 60Z"/>
+              <ellipse class="core" cx="50" cy="66" rx="9" ry="24"/>
+              <path class="fil" d="M50 44V86"/>
+              <rect class="cap" x="34" y="0" width="32" height="30" rx="5"/><path class="ridge" d="M34 8h32M34 15h32M34 22h32"/>
+            </svg></span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <section id="products">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Our products</h2>
+        <p>Everything you need to run, cool and light a home or a business, in one shop.</p>
+      </div>
+      <div class="products-grid" id="tilt-grid">
+
+        <article class="panel wide">
+          <div class="art" aria-hidden="true">
+            <svg viewBox="0 0 160 120">
+              <rect x="34" y="38" width="76" height="46" rx="9"/>
+              <path d="M48 44v34M60 44v34M72 44v34M84 44v34M96 44v34"/>
+              <rect x="24" y="48" width="10" height="26" rx="3"/>
+              <rect x="110" y="48" width="10" height="26" rx="3"/>
+              <path d="M120 61h24"/>
+              <rect x="52" y="24" width="30" height="14" rx="3"/>
+              <path d="M40 84v10h64V84M26 94h92"/>
+            </svg>
+          </div>
+          <h3>Electric motors</h3>
+          <ul>
+            <li>Water pump motors</li>
+            <li>High-quality electric motors</li>
+            <li>Domestic and commercial use</li>
+          </ul>
+        </article>
+
+        <article class="panel narrow">
+          <div class="art" aria-hidden="true">
+            <svg viewBox="0 0 160 120">
+              <path d="M80 2v50"/>
+              <circle cx="80" cy="62" r="10"/>
+              <rect x="92" y="57" width="48" height="10" rx="5" transform="rotate(8 80 62)"/>
+              <rect x="92" y="57" width="48" height="10" rx="5" transform="rotate(128 80 62)"/>
+              <rect x="92" y="57" width="48" height="10" rx="5" transform="rotate(248 80 62)"/>
+            </svg>
+          </div>
+          <h3>Fans</h3>
+          <ul>
+            <li>Ceiling fans</li>
+            <li>Modern designer fans</li>
+            <li>High-speed fans</li>
+          </ul>
+        </article>
+
+        <article class="panel narrow">
+          <div class="art" aria-hidden="true">
+            <svg viewBox="0 0 160 120">
+              <rect x="42" y="10" width="76" height="90" rx="10"/>
+              <rect x="52" y="20" width="56" height="34" rx="5"/>
+              <path d="M52 29h56M52 38h56M52 47h56"/>
+              <path d="M56 74q6-6 12 0t12 0 12 0 12 0"/>
+              <path d="M56 88h48"/>
+              <circle cx="56" cy="108" r="5"/><circle cx="104" cy="108" r="5"/>
+            </svg>
+          </div>
+          <h3>Air coolers</h3>
+          <ul>
+            <li>Personal air coolers</li>
+            <li>Room air coolers</li>
+            <li>Energy-efficient cooling solutions</li>
+          </ul>
+        </article>
+
+        <article class="panel wide">
+          <div class="art" aria-hidden="true">
+            <svg viewBox="0 0 160 120">
+              <circle cx="60" cy="38" r="20"/>
+              <path d="M52 44V34l8 8 8-8v10"/>
+              <path d="M50 58h20v10H50zM54 74h12"/>
+              <path d="M96 16l12-7M102 38h16M96 60l12 7"/>
+              <rect x="20" y="92" width="120" height="14" rx="7"/>
+              <path d="M40 99h.01M60 99h.01M80 99h.01M100 99h.01M120 99h.01" stroke-width="5"/>
+            </svg>
+          </div>
+          <h3>LED bulbs &amp; lighting</h3>
+          <ul>
+            <li>LED bulbs</li>
+            <li>LED tube lights</li>
+            <li>Decorative lighting</li>
+            <li>Energy-saving lights</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="why" id="why">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Why choose Davud Electricals?</h2>
+      </div>
+      <ul class="why-list">
+        <li>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l11 4v8c0 7-5 12-11 14C10 27 5 22 5 15V7z"/><path d="M11 16l4 4 7-8"/></svg>
+          <strong>Quality products</strong>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M20 11h-6a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-7M16 8v3M16 23v3"/></svg>
+          <strong>Affordable prices</strong>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="5" width="10" height="10" rx="2"/><rect x="18" y="5" width="10" height="10" rx="2"/><rect x="4" y="19" width="10" height="8" rx="2"/><rect x="18" y="19" width="10" height="8" rx="2"/></svg>
+          <strong>Wide range of electrical items</strong>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 9a3 3 0 0 1 3-3h16a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H15l-6 5v-5H8a3 3 0 0 1-3-3z"/><path d="M11 14h.01M16 14h.01M21 14h.01" stroke-width="3.4"/></svg>
+          <strong>Customer-friendly service</strong>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <h2>Need electrical products? We're here to help.</h2>
+        <p class="lede">Visit our shop or contact us today for product details and pricing.</p>
+        <div class="cta-row">
+          <a class="btn btn-dark" href="tel:+919912434820">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+            Call now
+          </a>
+          <a class="btn btn-line-dark" href="https://wa.me/919912434820?text=Hello%20Davud%20Electricals%2C%20I%20need%20details%20about%20your%20products." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.8A9 9 0 1 1 8 19.5z"/><path d="M9 9c0 3 3 6 6 6l1.2-1.6-2.2-1.2-.9.9c-.9-.4-1.7-1.2-2.1-2.1l.9-.9L10.7 8z"/></svg>
+            WhatsApp us
+          </a>
+        </div>
+      </div>
+
+      <div class="details">
+        <h3>Visit the shop</h3>
+        <dl>
+          <div>
+            <dt>Address</dt>
+            <dd>Ground Floor, Main Rd, opp. Govt School,<br>Huzur Nagar, Telangana 508204</dd>
+          </div>
+          <div>
+            <dt>Phone and WhatsApp</dt>
+            <dd><a href="tel:+919912434820">99124 34820</a></dd>
+          </div>
+          <div>
+            <dt>Opening hours</dt>
+            <dd>
+              <table class="hours">
+                <tbody>
+                  <tr data-days="1,2,3,4,5,6"><th scope="row">Monday to Saturday</th><td>9 am – 9 pm</td></tr>
+                  <tr data-days="0"><th scope="row">Sunday</th><td>10 am – 2 pm</td></tr>
+                </tbody>
+              </table>
+            </dd>
+          </div>
+        </dl>
+        <a class="btn btn-dark" href="https://maps.app.goo.gl/zEDzMupYwvp8mLuFA" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          Open in Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <strong>Davud Electricals</strong>
+    <span>Your trusted electrical products store</span>
+    <span>&copy; 2026 Davud Electricals</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var hero = document.getElementById("hero");
+  var lamps = Array.prototype.slice.call(document.querySelectorAll(".lamp"));
+
+  function refreshHero(){
+    var any = lamps.some(function(l){return l.classList.contains("on");});
+    hero.classList.toggle("lit", any);
+  }
+  function setLamp(l, on){
+    l.classList.toggle("on", on);
+    l.setAttribute("aria-pressed", on ? "true" : "false");
+    refreshHero();
+  }
+
+  // Start in darkness, then switch the bulbs on one by one.
+  lamps.forEach(function(l){ l.classList.remove("on"); l.setAttribute("aria-pressed","false"); });
+  var order = [1, 0, 2, 3];
+  order.forEach(function(idx, i){
+    var delay = reduce ? 0 : 500 + i * 650;
+    setTimeout(function(){ setLamp(lamps[idx], true); }, delay);
+  });
+
+  lamps.forEach(function(l){
+    l.addEventListener("click", function(){
+      setLamp(l, !l.classList.contains("on"));
+      if(!reduce){
+        l.classList.remove("swinging");
+        void l.offsetWidth;
+        l.classList.add("swinging");
+      }
+    });
+  });
+
+  // Highlight today's opening hours.
+  var dayNow = String(new Date().getDay());
+  document.querySelectorAll(".hours tr").forEach(function(r){
+    if(r.getAttribute("data-days").split(",").indexOf(dayNow) !== -1) r.classList.add("today");
+  });
+
+  // Gentle 3D tilt on product panels (mouse only).
+  var fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if(fine && !reduce){
+    document.querySelectorAll(".panel").forEach(function(p){
+      p.addEventListener("pointermove", function(e){
+        var r = p.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - .5;
+        var y = (e.clientY - r.top) / r.height - .5;
+        p.style.setProperty("--ry", (x * 8).toFixed(2) + "deg");
+        p.style.setProperty("--rx", (-y * 8).toFixed(2) + "deg");
+      });
+      p.addEventListener("pointerleave", function(){
+        p.style.setProperty("--ry", "0deg");
+        p.style.setProperty("--rx", "0deg");
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>
